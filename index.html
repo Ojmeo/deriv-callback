@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>QuantEx Auth</title></head>
+<body style="background:#020408;color:#00e5ff;font-family:monospace;text-align:center;padding:60px">
+<h2>✓ LOGIN SUCCESSFUL</h2>
+<p>Returning to QuantEx...</p>
+<script>
+  // Send the auth code back to the Electron app via deep link
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code');
+  const state = params.get('state');
+  if (code) {
+    window.location.href = 'quantex://callback?code=' + code + '&state=' + state;
+  }
+</script>
+</body>
+</html>
